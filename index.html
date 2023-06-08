@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H-Thai-ML</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+    <header>
+        <div id="top-navbar-logo">
+            <span id="logo-span"> &lt; H-<em>Thai</em>-ML &gt;</span>
+            <span id="logo-location"> Chicago </span>
+        </div>
+        <nav>
+            <ul>
+                <li> <a> Home </a></li>
+                <li> <a> Menu </a></li>
+                <li> <a> About </a></li>
+                <li> <a> Contact </a></li>
+            </ul>
+        </nav>
+    </header>
+    <div id = "welcome-carousel">
+        
+    </div>
+<script>
+    //convert lat and lon to radians and compare the two to find the closest location in K units
+    function distance(lat0, lon0, lat1, lon1) 
+    {
+        var radlat0 = Math.PI * lat0/180;
+        var radlat1 = Math.PI * lat1/180;
+        var theta = lon0-lon1;
+        var radtheta = Math.PI * theta/180;
+        var dist = Math.sin(radlat0) * Math.sin(radlat1) + Math.cos(radlat0) * Math.cos(radlat1) * Math.cos(radtheta);
+        if (dist > 1) 
+        {
+            dist = 1;
+        }
+        dist = Math.acos(dist);
+        dist = dist * 180/Math.PI;
+        dist = dist * 60 * 1.1515;
+        dist = dist * 1.609344; //converting to K units
+    return dist;
+}
+    function displayCorrectLocation()
+    {
+        const options = 
+        {
+        enableHighAccuracy: true,
+        timeout: 5000,
+        maximumAge: 0,
+        };
+        function success(pos) 
+        {
+            const storeLocations = 
+            {
+            "Houston"    : {latitude: 29.7604267, longitude: -95.3698028} ,
+            "Seattle"    : {latitude: 47.6062095, longitude: -122.3320708},
+            "Tampa"      : {latitude: 27.964157, longitude: -82.452606},
+            "Wilmington" : {latitude: 34.225727, longitude: -77.944710},
+            }
+            const usersCrd = pos.coords;
+            console.log("Your current position is:");
+            console.log(`Latitude : ${usersCrd.latitude}`);
+            console.log(`Longitude: ${usersCrd.longitude}`);
+            // convert lat and long to radians
+            var distances = {};
+            for (var i =0; i++; i< Object.keys(storeLocations).length)
+            {
+                var radialDistance = distance(usersCrd.latitude, usersCrd.longitude,storeLocations.Houston.latitude , storeLocations.Houston.longitude);
+                console.log(radialDistance);
+                distances.
+
+            }
+        }
+        function error(err) 
+        {
+            console.warn(`ERROR(${err.code}): ${err.message}`);
+            //just put them in the deafult location which I have decided is Houston
+        }
+        navigator.geolocation.getCurrentPosition(success, error, options);
+    }
+    displayCorrectLocation();
+
+
+
+
+
+</script>
+</body>
+</html>
