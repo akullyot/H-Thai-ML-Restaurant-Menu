@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
+    <div id="main-terminal-window">
     <header>
         <div id="top-navbar-logo">
             <span id="logo-span"> &gt;<em>H-Thai-ML</em></span>
@@ -14,17 +15,17 @@
         </div>
         <nav>
             <ul class="navbar-list">
-                <li class="navbar"> <a> Home </a></li>
-                <li class="navbar"> <a> Menu </a></li>
-                <li class="navbar"> <a> About </a></li>
-                <li class="navbar"> <a> Contact </a></li>
+                <li class="navbar"> <a> HOME </a></li>
+                <li class="navbar"> <a> MENU </a></li>
+                <li class="navbar"> <a> ABOUT </a></li>
+                <li class="navbar"> <a> CONTACT </a></li>
             </ul>
         </nav>
     </header>
     <div id = "welcome-carousel">
-        
+        <img src = "images\satay-chicken-3604856_1920_huahom.jpg" alt = "satay-chicken-by-huahom">
     </div>
-    <p id="demo"> </p>
+    </div>
 <script>
     //function to create terminal writing animation
     function blink() 
@@ -33,7 +34,7 @@
         setInterval(function() 
         {
         blinker.style.display = (blinker.style.display == 'none' ? '' : 'none');
-        }, 2000);
+        }, 1000);
     }
 
     var i = 0;

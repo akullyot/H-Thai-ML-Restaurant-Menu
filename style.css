@@ -1,28 +1,17 @@
 /* CSS Imports for prettier fonts etc */
 @import url(https://fonts.googleapis.com/css?family=Press+Start+2P);
-@import url(https://fonts.googleapis.com/css?family=Castoro);
+@import url(https://fonts.googleapis.com/css?family=Fira+Code);
 /*General CSS*/
 /*Header CSS */
 body
 {
-    background-color: lightslategrey;
+    background-color: #252526;
 }
+
 header
 {
-
-    display        : flex;
-    justify-content: space-between;
-    align-items    : flex-start;
-    flex-wrap      : wrap;
-    background     : slategrey;
     color          : #55ff55;
-    position       : sticky;
-    top            : 0;
-    font-family    : "Press Start 2P";
-    border         : 2px solid black;
-    -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: black;
-
+    font-family    : "Fira Code";
 }
 span#logo-span
 {
@@ -40,18 +29,81 @@ span#terminal-underscore
     display: inline-block;
     margin-top: 15px;
 }
+/*folders */
+.folders 
+{
+    width: 92%;
+    margin: 20px auto;
+    margin-bottom: 0px;
+    background: #748181;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    padding: 3px 20px 0px 50px;
+    color: #c7d3de;
+    font-family:"Fira Code";
+  }
+
 ul.navbar-list 
 {
     display        : flex;
-    justify-content: space-between;
-    align-items    : flex-start;
-    flex-wrap      : wrap;
-    font-size      : 20px;
+    justify-content: flex-end;
     list-style-type: none;
     -webkit-text-stroke-width: 1px;
+    margin-bottom: auto; 
 }
 li.navbar
 {
-  margin-left: 40px;
-  margin-right: 15px;
+    border: 2px solid  #2d3030;
+    border-bottom: 2px solid  #c7d3de;;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 20px;
+    width:10%;
+    font-size: 20px;
+    margin-bottom: 10px;
 }
+/* Home image carousel 
+#welcome-carousel img
+{
+    width: 100%;
+    height: auto;
+}
+*/
+
+
+.main-terminal-window 
+{
+    width: 92%;
+    margin: 50px auto;
+    margin-top: -10px;
+    background: #232B2B;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    white-space: pre-wrap; 
+    padding: 20px 20px 20px 50px;
+    color: #c7d3de;
+    counter-reset: step;
+    counter-increment: step 0;
+    .line {
+      line-height: 1.4em;
+      &:before {
+        color: lighten(#232B2B, 50%);
+        position: absolute;
+        left: 3%;
+        content: counter(step);
+        counter-increment: step;
+      }
+    }
+  }
+
+  img
+  {
+    width: 100%;
+    height: auto;
+    border: 1px solid #c7d3de;
+    border-radius: 3px;
+  }
