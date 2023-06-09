@@ -1,4 +1,57 @@
+/* CSS Imports for prettier fonts etc */
+@import url(https://fonts.googleapis.com/css?family=Press+Start+2P);
+@import url(https://fonts.googleapis.com/css?family=Castoro);
+/*General CSS*/
+/*Header CSS */
+body
+{
+    background-color: lightslategrey;
+}
 header
 {
-    
+
+    display        : flex;
+    justify-content: space-between;
+    align-items    : flex-start;
+    flex-wrap      : wrap;
+    background     : slategrey;
+    color          : #55ff55;
+    position       : sticky;
+    top            : 0;
+    font-family    : "Press Start 2P";
+    border         : 2px solid black;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
+
+}
+span#logo-span
+{
+
+    font-size: 30px;
+    margin-left: 20px;
+    display: inline-block;
+    margin-top: 15px;
+
+}
+span#terminal-underscore
+{
+
+    font-size: 30px;
+    display: inline-block;
+    margin-top: 15px;
+}
+ul.navbar-list 
+{
+    display        : flex;
+    justify-content: space-between;
+    align-items    : flex-start;
+    flex-wrap      : wrap;
+    font-size      : 20px;
+    list-style-type: none;
+    -webkit-text-stroke-width: 1px;
+}
+li.navbar
+{
+  margin-left: 40px;
+  margin-right: 15px;
 }

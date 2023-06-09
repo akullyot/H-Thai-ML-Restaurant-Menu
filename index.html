@@ -3,29 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>H-Thai-ML</title>
+    <title>H-Thai-ML: Home</title>
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
     <header>
         <div id="top-navbar-logo">
-            <span id="logo-span"> &lt; H-<em>Thai</em>-ML &gt;</span>
-            <span id="logo-location"> Chicago </span>
+            <span id="logo-span"> &gt;<em>H-Thai-ML</em></span>
+            <span id="terminal-underscore"> _ </span>
         </div>
         <nav>
-            <ul>
-                <li> <a> Home </a></li>
-                <li> <a> Menu </a></li>
-                <li> <a> About </a></li>
-                <li> <a> Contact </a></li>
+            <ul class="navbar-list">
+                <li class="navbar"> <a> Home </a></li>
+                <li class="navbar"> <a> Menu </a></li>
+                <li class="navbar"> <a> About </a></li>
+                <li class="navbar"> <a> Contact </a></li>
             </ul>
         </nav>
     </header>
     <div id = "welcome-carousel">
         
     </div>
+    <p id="demo"> </p>
 <script>
-    //convert lat and lon to radians and compare the two to find the closest location in K units
+    //function to create terminal writing animation
+    function blink() 
+    {
+        var blinker = document.getElementById('terminal-underscore');
+        setInterval(function() 
+        {
+        blinker.style.display = (blinker.style.display == 'none' ? '' : 'none');
+        }, 2000);
+    }
+
+    var i = 0;
+    var txt = 'H-Thai-ML';
+    var speed = 10;
+function typeWriter() {
+  if (i < txt.length) {
+    document.getElementById("logo-span").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+}
+    //function that converts lat and lon to radians and compare the two to find the closest location in K units
     function distance(lat0, lon0, lat1, lon1) 
     {
         var radlat0 = Math.PI * lat0/180;
@@ -43,6 +64,7 @@
         dist = dist * 1.609344; //converting to K units
     return dist;
 }
+    //function that takes users location and shows the closest location in the logo span
     function displayCorrectLocation()
     {
         const options = 
@@ -66,23 +88,42 @@
             console.log(`Longitude: ${usersCrd.longitude}`);
             // convert lat and long to radians
             var distances = {};
-            for (var i =0; i++; i< Object.keys(storeLocations).length)
+            let closestCity = "Houston"
+            for (let i=0; i < Object.keys(storeLocations).length; i++)
             {
-                var radialDistance = distance(usersCrd.latitude, usersCrd.longitude,storeLocations.Houston.latitude , storeLocations.Houston.longitude);
-                console.log(radialDistance);
-                distances.
-
+                var radialDistance = distance(usersCrd.latitude, usersCrd.longitude,storeLocations[Object.keys(storeLocations)[i]].latitude , storeLocations[Object.keys(storeLocations)[i]].longitude);
+                distances[Object.keys(storeLocations)[i]] = radialDistance;
+                if (i > 0)
+                {
+                    let distLast = distances[Object.keys(storeLocations)[i-1]];
+                    let distCurrent = radialDistance;
+                    console.log(distLast, distCurrent);
+                    if (distCurrent > distLast)
+                    {
+                        closestCity = Object.keys(storeLocations)[i];
+                    }
+                    else if (distCurrent == distLast)
+                    {
+                        //very unlikely to happen but lets just give it the current one 
+                        closestCity = Object.keys(storeLocations)[i];
+                    }
+                }
             }
+            document.getElementById("logo-location").innerHTML = closestCity;
         }
         function error(err) 
         {
             console.warn(`ERROR(${err.code}): ${err.message}`);
             //just put them in the deafult location which I have decided is Houston
+            alert("Location unknown, showing our Houston Site");
+            document.getElementById("logo-location").innerHTML = "Houston";
         }
         navigator.geolocation.getCurrentPosition(success, error, options);
     }
-    displayCorrectLocation();
-
+    
+    
+    //displayCorrectLocation();
+    blink();
 
 
 
