@@ -28,6 +28,7 @@
           <li class="navbar"> <a href = "contact.html"> Contact </a></li>
     </ul>
   </nav>
+  <main>
   <pre class="main-terminal-window">
     <span class="line" style ="margin-bottom: 0px;">guest@h-thai-ml: $ ~ generateTastyFood();</span>
     <div id="welcome-carousel">
@@ -49,26 +50,27 @@
     <span class="line">guest@h-thai-ml: $ ~ findNearestLocation()</span>;
     <span class="line">guest@h-thai-ml: $ ~ showDiningOptions()</span>;
     <div class="terminal-text"> 
-      <h1>Your Location has been calculated to be nearest to our Houston Branch</h1>
-      <h2> Where every bite of HTMLicious Thai is a coding delight!</h2>
-    </div>
-    <div class = "horizontally-stacked-terminal-text">
-      <div class="terminal-text"> 
-        <h1>Dine In</h1>
-        <h2> Where every bite of HTMLicious Thai is a coding delight!</h2>
-      </div>
-      <div class="terminal-text"> 
-        <h1> Take Out</h1>
-        <h2> Where every bite of HTMLicious Thai is a coding delight!</h2>
-      </div>
-      <div class="terminal-text"> 
-        <h1>Delivery</h1>
-        <h2> Where every bite of HTMLicious Thai is a coding delight!</h2>
+      <h1 id ="location-HTML">Your Location has been calculated to be nearest to our Houston Branch</h1>
+      <h2> Please select your desired dining experience</h2>
+      <div class = "horizontally-stacked-terminal-text">
+        <div class="terminal-text service"> 
+          <h1>Dine In</h1>
+          <h2> Come visit us at our dine in restaurant for a structured and spicy coding delight. </h2>
+        </div>
+        <div class="terminal-text service"> 
+          <h1> Take Out</h1>
+          <h2> Want to eat while debugging? Check us out during store hours for online order placement ans subsequent pickup!</h2>
+        </div>
+        <div class="terminal-text service"> 
+          <h1>Delivery</h1>
+          <h2> So swamped with deadlines you can't leave the house? Use our online ordering and delivery system to get fresh Thai food straight to your door! </h2>
+        </div>
       </div>
     </div>
     <span class="line">guest@h-thai-ml: $ ~ showRestaurant()</span>;
     <img src = "images\thai-food-3550007_1920_huahom.jpg" alt = "barracuda-by-huahom" class="image-carousel-home" id="homeimage-0" style ="display:''">
   </pre>
+  </main>
   <footer id = "social-media-footer">
     <div id="social-media-container">
     <a class = "social-media" href = "https://www.facebook.com/"> <img id="facebook" class = "svg" src="https://drive.google.com/uc?export=view&id=1Aq7BOBxdVNV60jegxE79aPXkEAUHWkdT"> </a>
@@ -158,14 +160,15 @@
                     }
                 }
             }
-            document.getElementById("logo-location").innerHTML = closestCity + " Branch";
+            document.getElementById("location-HTML").innerHTML = "Your Location has been calculated to be nearest to our "+closestCity+" Branch";
         }
         function error(err) 
         {
             console.warn(`ERROR(${err.code}): ${err.message}`);
             //just put them in the deafult location which I have decided is Houston
             alert("Location unknown, showing our Houston Site");
-            document.getElementById("logo-location").innerHTML = "Houston Branch";
+            document.getElementById("location-HTML").innerHTML = "Your Location has failed calculation and you are being redirected to our calculated to be nearest to our Houston Branch";
+
         }
         navigator.geolocation.getCurrentPosition(success, error, options);
     }
