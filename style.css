@@ -238,7 +238,18 @@ li.navbar a
         padding: 10px;
         text-align: center;
     }
-
+/* ABout CSS */
+.about-us-half-terminal
+{
+    display: flex;
+    justify-content: space-between;   
+}
+.about-us-half-terminal img
+{
+    width: 50%;
+    height: auto;
+    padding: 5px;
+}
 
 /* footer CSS */
 footer#social-media-footer

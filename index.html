@@ -30,7 +30,12 @@
   </nav>
   <main>
   <pre class="main-terminal-window">
-    <span class="line" style ="margin-bottom: 0px;">guest@h-thai-ml: $ ~ generateTastyFood();</span>
+    <span class="line" style ="margin-bottom: 0px;">Guest@h-thai-ml / $ cd ~</span>
+    <span class="line" style ="margin-bottom: 0px;">Guest@h-thai-ml ~ $ cd H-Thai-ML </span>
+    <span class="line" style ="margin-bottom: 0px;">Guest@h-thai-ml ~/H-Thai-ML $ cd welcomepage </span>
+    <span class="line" style ="margin-bottom: 0px;">Guest@h-thai-ml ~/H-Thai-ML/WelcomePage $ ls </span>
+    <span class="line" style ="margin-bottom: 0px; color: slategray;">&emsp; ourFavorites.html &emsp; welcomeSlogan.html &emsp; locationOptions.html &emsp; workersInAction.html </span>
+    <span class="line" style ="margin-bottom: -20px;">Guest@h-thai-ml ~/H-Thai-ML/WelcomePage $ nano ourFavorites.html  </span>
     <div id="welcome-carousel">
       <button id ='imagefloaterbtn-left'class="image-floater-arrow" onclick = 'carousel(this, "homeimage",3);'> ⇦ </button>
       <button id='imagefloaterbtn-right' class="image-floater-arrow" style="left : 93%;" onclick = 'carousel(this, "homeimage",3);'> ⇨ </button>
@@ -39,16 +44,16 @@
     <img src = "images\satay-chicken-3604856_1920_huahom.jpg" alt = "satay-chicken-by-huahom" class="image-carousel-home"  id="homeimage-1"  style ="display: none;">
     <img src = "images\thai-basil-2996229_1920_huahom.jpg" alt = "thai-basil-by-huahom" class="image-carousel-home"  id="homeimage-2" style ="display: none;">
     </div>
-    <span class="line" id="home-carousel-description-line">Menu item name : Barracuda Entry</span>;
-    <span class="line">Price : $20</span>;
+    <span class="" id="home-carousel-description-line" style="font-size: 15px; color: lawngreen;">Menu item name : Barracuda Entry</span>;
+    <span class="">Price : $20</span>;
     <span class="line"></span>
-    <span class="line">guest@h-thai-ml: $ ~ generateSlogan()</span>;
+    <span class="line"></span>
+    <span class="line" style ="margin-bottom: -20px;">Guest@h-thai-ml ~/H-Thai-ML/WelcomePage $ nano welcomeSlogan.html  </span>
     <div class="terminal-text"> 
       <h1>Welcome to H-<em>Thai</em>-ML</h1>
       <h2> Where every bite of HTMLicious Thai is a coding delight!</h2>
     </div>
-    <span class="line">guest@h-thai-ml: $ ~ findNearestLocation()</span>;
-    <span class="line">guest@h-thai-ml: $ ~ showDiningOptions()</span>;
+    <span class="line" style ="margin-bottom: -20px;">Guest@h-thai-ml ~/H-Thai-ML/WelcomePage $ nano locationOptions.html  </span>
     <div class="terminal-text"> 
       <h1 id ="location-HTML">Your Location has been calculated to be nearest to our Houston Branch</h1>
       <h2> Please select your desired dining experience</h2>
@@ -67,8 +72,11 @@
         </div>
       </div>
     </div>
-    <span class="line">guest@h-thai-ml: $ ~ showRestaurant()</span>;
-    <img src = "images\gareth-harrison-restauraunt-front.jpg"alt = "barracuda-by-huahom" class="image-carousel-home" id="homeimage-0" style ="display:''">
+    <span class="line" style ="margin-bottom: -20px;">Guest@h-thai-ml ~/H-Thai-ML/WelcomePage $ nano workersInAction.html  </span>
+    <div class="terminal-text"> 
+      <h1> > Come See Us in Action!</h1>
+      <img src = "images\gareth-harrison-restauraunt-front.jpg"alt = "cook-by-garethharrison">
+    </div>
   </pre>
   </main>
   <footer id = "social-media-footer">
@@ -131,10 +139,10 @@
         {
             const storeLocations = 
             {
-            "Houston"    : {latitude: 29.7604267, longitude: -95.3698028} ,
-            "Seattle"    : {latitude: 47.6062095, longitude: -122.3320708},
-            "Tampa"      : {latitude: 27.964157, longitude: -82.452606},
-            "Wilmington" : {latitude: 34.225727, longitude: -77.944710},
+              "Houston"    : {latitude: 29.7604267, longitude: -95.3698028} ,
+              "Seattle"    : {latitude: 47.6062095, longitude: -122.3320708},
+              "Tampa"      : {latitude: 27.964157, longitude: -82.452606},
+              "Wilmington" : {latitude: 34.225727, longitude: -77.944710},
             }
             const usersCrd = pos.coords;
             // convert lat and long to radians
@@ -235,6 +243,11 @@
   var circles_innerHTML =  replaceChar(circles_innerHTML_all, '◉', next);
   document.getElementById(circlecounter_id).innerHTML = circles_innerHTML;
   //generate length many circles, replace nexth-th one with a filled in 
+  var menuDescriptions = {
+                          0 :'Barracuda Entry',
+                          1 :'Satay Chicken Entree', 
+                          2 :'Thai Basil Chicken' }
+   document.getElementById("home-carousel-description-line").innerHTML = "Menu Item Name: " + menuDescriptions[next];
 };
     
     displayCorrectLocation();

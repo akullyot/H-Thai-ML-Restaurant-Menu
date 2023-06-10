@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>H-Thai-ML: Home</title>
+    <title>H-Thai-ML: Menu</title>
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
@@ -30,45 +30,7 @@
   </nav>
   <main>
   <pre class="main-terminal-window">
-    <span class="line" style ="margin-bottom: 0px;">guest@h-thai-ml: $ ~ generateTastyFood();</span>
-    <div id="welcome-carousel">
-      <button id ='imagefloaterbtn-left'class="image-floater-arrow" onclick = 'carousel(this, "homeimage",3);'> ⇦ </button>
-      <button id='imagefloaterbtn-right' class="image-floater-arrow" style="left : 93%;" onclick = 'carousel(this, "homeimage",3);'> ⇨ </button>
-      <h1 id = 'homeimage-circlecounter' class = "image-floater-counter"> ◉◎◎ </h1>
-      <img src = "images\thai-food-3550007_1920_huahom.jpg" alt = "barracuda-by-huahom" class="image-carousel-home" id="homeimage-0" style ="display:''">
-    <img src = "images\satay-chicken-3604856_1920_huahom.jpg" alt = "satay-chicken-by-huahom" class="image-carousel-home"  id="homeimage-1"  style ="display: none;">
-    <img src = "images\thai-basil-2996229_1920_huahom.jpg" alt = "thai-basil-by-huahom" class="image-carousel-home"  id="homeimage-2" style ="display: none;">
-    </div>
-    <span class="line" id="home-carousel-description-line">Menu item name : Barracuda Entry</span>;
-    <span class="line">Price : $20</span>;
-    <span class="line"></span>
-    <span class="line">guest@h-thai-ml: $ ~ generateSlogan()</span>;
-    <div class="terminal-text"> 
-      <h1>Welcome to H-<em>Thai</em>-ML</h1>
-      <h2> Where every bite of HTMLicious Thai is a coding delight!</h2>
-    </div>
-    <span class="line">guest@h-thai-ml: $ ~ findNearestLocation()</span>;
-    <span class="line">guest@h-thai-ml: $ ~ showDiningOptions()</span>;
-    <div class="terminal-text"> 
-      <h1 id ="location-HTML">Your Location has been calculated to be nearest to our Houston Branch</h1>
-      <h2> Please select your desired dining experience</h2>
-      <div class = "horizontally-stacked-terminal-text">
-        <div class="terminal-text service"> 
-          <h1>Dine In</h1>
-          <h2> Come visit us at our dine in restaurant for a structured and spicy coding delight. </h2>
-        </div>
-        <div class="terminal-text service"> 
-          <h1> Take Out</h1>
-          <h2> Want to eat while debugging? Check us out during store hours for online order placement ans subsequent pickup!</h2>
-        </div>
-        <div class="terminal-text service"> 
-          <h1>Delivery</h1>
-          <h2> So swamped with deadlines you can't leave the house? Use our online ordering and delivery system to get fresh Thai food straight to your door! </h2>
-        </div>
-      </div>
-    </div>
-    <span class="line">guest@h-thai-ml: $ ~ showRestaurant()</span>;
-    <img src = "images\gareth-harrison-restauraunt-front.jpg"alt = "barracuda-by-huahom" class="image-carousel-home" id="homeimage-0" style ="display:''">
+
   </pre>
   </main>
   <footer id = "social-media-footer">
@@ -100,144 +62,6 @@
         setTimeout(typeWriter, speed);
       }
     }
-    //function that converts lat and lon to radians and compare the two to find the closest location in K units
-    function distance(lat0, lon0, lat1, lon1) 
-    {
-        var radlat0 = Math.PI * lat0/180;
-        var radlat1 = Math.PI * lat1/180;
-        var theta = lon0-lon1;
-        var radtheta = Math.PI * theta/180;
-        var dist = Math.sin(radlat0) * Math.sin(radlat1) + Math.cos(radlat0) * Math.cos(radlat1) * Math.cos(radtheta);
-        if (dist > 1) 
-        {
-            dist = 1;
-        }
-        dist = Math.acos(dist);
-        dist = dist * 180/Math.PI;
-        dist = dist * 60 * 1.1515;
-        dist = dist * 1.609344; //converting to K units
-    return dist;
-    }
-    //function that takes users location and shows the closest location in the logo span
-    function displayCorrectLocation()
-    {
-        const options = 
-        {
-        enableHighAccuracy: true,
-        timeout: 5000,
-        maximumAge: 0,
-        };
-        function success(pos) 
-        {
-            const storeLocations = 
-            {
-            "Houston"    : {latitude: 29.7604267, longitude: -95.3698028} ,
-            "Seattle"    : {latitude: 47.6062095, longitude: -122.3320708},
-            "Tampa"      : {latitude: 27.964157, longitude: -82.452606},
-            "Wilmington" : {latitude: 34.225727, longitude: -77.944710},
-            }
-            const usersCrd = pos.coords;
-            // convert lat and long to radians
-            var distances = {};
-            let closestCity = "Houston"
-            for (let i=0; i < Object.keys(storeLocations).length; i++)
-            {
-                var radialDistance = distance(usersCrd.latitude, usersCrd.longitude,storeLocations[Object.keys(storeLocations)[i]].latitude , storeLocations[Object.keys(storeLocations)[i]].longitude);
-                distances[Object.keys(storeLocations)[i]] = radialDistance;
-                if (i > 0)
-                {
-                    let distLast = distances[Object.keys(storeLocations)[i-1]];
-                    let distCurrent = radialDistance;
-                    console.log(distLast, distCurrent);
-                    if (distCurrent > distLast)
-                    {
-                        closestCity = Object.keys(storeLocations)[i];
-                    }
-                    else if (distCurrent == distLast)
-                    {
-                        //very unlikely to happen but lets just give it the current one 
-                        closestCity = Object.keys(storeLocations)[i];
-                    }
-                }
-            }
-            document.getElementById("location-HTML").innerHTML = "Your Location has been calculated to be nearest to our "+closestCity+" Branch";
-        }
-        function error(err) 
-        {
-            console.warn(`ERROR(${err.code}): ${err.message}`);
-            //just put them in the deafult location which I have decided is Houston
-            alert("Location unknown, showing our Houston Site");
-            document.getElementById("location-HTML").innerHTML = "Your Location has failed calculation and you are being redirected to our calculated to be nearest to our Houston Branch";
-
-        }
-        navigator.geolocation.getCurrentPosition(success, error, options);
-    }
-    //function to replace character at a specific index
-    function replaceChar(origString, replaceChar, index) 
-    {
-        let firstPart = origString.substr(0, index);
-        let lastPart = origString.substr(index + 1);
-        let newString = firstPart + replaceChar + lastPart;
-        return newString;
-    }
-    //function for the home image carousel 
-    //generalized-ish out to work for n images
-    //every image that you wish to cycle through must be id'd image_id-n
-    //the circle counter that should be changed will also have the id 
-    //image_id-circlecounter
-    //IMAGE_ID CANNOT HAVE A -
-    //ALL BUTTON IDS MUST END IN -left or -right
-  function carousel (button, image_id, n)
-{
-  var imagesarray = [];
-  for(let i=0;i<n; i++)
-    {
-      imagesarray.push(image_id + "-" + i);
-    }
-  var circlecounter_id = image_id + "-circlecounter";
-  var button_id = button.id.split("-")[1]; //left or right
-  for (let i=0;i<imagesarray.length; i++)
-  {
-        if (document.getElementById(imagesarray[i]).style.display == "")
-        {
-           var index = parseInt(imagesarray[i].split("-")[1]);
-          console.log(index)
-        }
-   }
-   if (button_id == "right")
-   {
-      var next = index + 1;
-      if (next == imagesarray.length )
-        {
-          var next = 0;        
-        }
-    }
-    else //left button
-    {
-      var next = index -1;
-      if (index <= 0)
-      {
-        var next = imagesarray.length - 1;
-      }
-    }
-  for (let i=0;i<imagesarray.length; i++)
-    {
-          if (parseInt(imagesarray[i].split("-")[1]) == next)
-          {
-            document.getElementById(imagesarray[i]).style.display = "";
-          }
-          else
-          {
-            document.getElementById(imagesarray[i]).style.display = "none"
-          }
-    }
-  var circles_innerHTML_all= '◎'.repeat(imagesarray.length);
-  var circles_innerHTML =  replaceChar(circles_innerHTML_all, '◉', next);
-  document.getElementById(circlecounter_id).innerHTML = circles_innerHTML;
-  //generate length many circles, replace nexth-th one with a filled in 
-};
-    
-    displayCorrectLocation();
     blink();
 
 
