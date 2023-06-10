@@ -239,18 +239,27 @@ li.navbar a
         text-align: center;
     }
 /* ABout CSS */
-.about-us-half-terminal
+.half-terminal-container
 {
     display: flex;
     justify-content: space-between;   
 }
-.about-us-half-terminal img
+.half-terminal-container img
 {
-    width: 50%;
+    width: 30%;
     height: auto;
     padding: 5px;
+    margin: 30px;
 }
-
+.half-terminal-container .terminal-text
+{
+    padding: 5px;
+    margin: 30px;
+}
+.half-terminal-container .terminal-text p
+{
+    margin: 30px;
+}
 /* footer CSS */
 footer#social-media-footer
 {
