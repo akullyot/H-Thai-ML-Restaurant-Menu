@@ -7,46 +7,99 @@
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
-    <div id="main-terminal-window">
-    <header>
-        <div id="top-navbar-logo">
-            <span id="logo-span"> &gt;<em>H-Thai-ML</em></span>
-            <span id="terminal-underscore"> _ </span>
+  <header>
+      <div id="top-navbar-logo">
+          <div id ="logo-container">
+          <span id="logo-span" class="header" style ="margin: 0px;"> &gt; <em>H-Thai-ML</em></span>
+          <span id="terminal-underscore" class="header"> _ </span>
+          </div>
+      </div>
+  </header>
+  <nav class="folders">
+    <span class = window-button>
+      <div class="button green"></div>
+      <div class="button yellow"></div>
+      <div class="button red"></div>
+    </span>
+    <ul class="navbar-list">
+          <li class="navbar clicked"> <a href = "index.html">  Home </a></li>
+          <li class="navbar"> <a href = "menu.html"> Menu </a></li>
+          <li class="navbar"> <a href = "about.html"> About </a></li>
+          <li class="navbar"> <a href = "contact.html"> Contact </a></li>
+    </ul>
+  </nav>
+  <main>
+  <pre class="main-terminal-window">
+    <span class="line" style ="margin-bottom: 0px;">guest@h-thai-ml: $ ~ generateTastyFood();</span>
+    <div id="welcome-carousel">
+      <button id ='imagefloaterbtn-left'class="image-floater-arrow" onclick = 'carousel(this, "homeimage",3);'> ⇦ </button>
+      <button id='imagefloaterbtn-right' class="image-floater-arrow" style="left : 93%;" onclick = 'carousel(this, "homeimage",3);'> ⇨ </button>
+      <h1 id = 'homeimage-circlecounter' class = "image-floater-counter"> ◉◎◎ </h1>
+      <img src = "images\thai-food-3550007_1920_huahom.jpg" alt = "barracuda-by-huahom" class="image-carousel-home" id="homeimage-0" style ="display:''">
+    <img src = "images\satay-chicken-3604856_1920_huahom.jpg" alt = "satay-chicken-by-huahom" class="image-carousel-home"  id="homeimage-1"  style ="display: none;">
+    <img src = "images\thai-basil-2996229_1920_huahom.jpg" alt = "thai-basil-by-huahom" class="image-carousel-home"  id="homeimage-2" style ="display: none;">
+    </div>
+    <span class="line" id="home-carousel-description-line">Menu item name : Barracuda Entry</span>;
+    <span class="line">Price : $20</span>;
+    <span class="line"></span>
+    <span class="line">guest@h-thai-ml: $ ~ generateSlogan()</span>;
+    <div class="terminal-text"> 
+      <h1>Welcome to H-<em>Thai</em>-ML</h1>
+      <h2> Where every bite of HTMLicious Thai is a coding delight!</h2>
+    </div>
+    <span class="line">guest@h-thai-ml: $ ~ findNearestLocation()</span>;
+    <span class="line">guest@h-thai-ml: $ ~ showDiningOptions()</span>;
+    <div class="terminal-text"> 
+      <h1 id ="location-HTML">Your Location has been calculated to be nearest to our Houston Branch</h1>
+      <h2> Please select your desired dining experience</h2>
+      <div class = "horizontally-stacked-terminal-text">
+        <div class="terminal-text service"> 
+          <h1>Dine In</h1>
+          <h2> Come visit us at our dine in restaurant for a structured and spicy coding delight. </h2>
         </div>
-        <nav>
-            <ul class="navbar-list">
-                <li class="navbar"> <a> HOME </a></li>
-                <li class="navbar"> <a> MENU </a></li>
-                <li class="navbar"> <a> ABOUT </a></li>
-                <li class="navbar"> <a> CONTACT </a></li>
-            </ul>
-        </nav>
-    </header>
-    <div id = "welcome-carousel">
-        <img src = "images\satay-chicken-3604856_1920_huahom.jpg" alt = "satay-chicken-by-huahom">
+        <div class="terminal-text service"> 
+          <h1> Take Out</h1>
+          <h2> Want to eat while debugging? Check us out during store hours for online order placement ans subsequent pickup!</h2>
+        </div>
+        <div class="terminal-text service"> 
+          <h1>Delivery</h1>
+          <h2> So swamped with deadlines you can't leave the house? Use our online ordering and delivery system to get fresh Thai food straight to your door! </h2>
+        </div>
+      </div>
     </div>
+    <span class="line">guest@h-thai-ml: $ ~ showRestaurant()</span>;
+    <img src = "images\gareth-harrison-restauraunt-front.jpg"alt = "barracuda-by-huahom" class="image-carousel-home" id="homeimage-0" style ="display:''">
+  </pre>
+  </main>
+  <footer id = "social-media-footer">
+    <div id="social-media-container">
+    <a class = "social-media" href = "https://www.facebook.com/"> <img id="facebook" class = "svg" src="https://drive.google.com/uc?export=view&id=1Aq7BOBxdVNV60jegxE79aPXkEAUHWkdT"> </a>
+    <a class = "social-media" href = "https://www.instagram.com/"> <img id="instagram" class = "svg" src="https://drive.google.com/uc?export=view&id=1YqpZDZJMjD48A6NPV1l6Owwga-5zuDhQ">  </a>
+    <a class = "social-media" href = "https://www.twitter.com/"> <img id="twitter" class= "svg" src="https://drive.google.com/uc?export=view&id=11AO2_Uu3yCYeuQCrrh61nBVuUAw-vJL6"> </a>
     </div>
-<script>
+</footer>
+  <script>
     //function to create terminal writing animation
     function blink() 
     {
         var blinker = document.getElementById('terminal-underscore');
         setInterval(function() 
         {
-        blinker.style.display = (blinker.style.display == 'none' ? '' : 'none');
+        blinker.innerHTML = (blinker.innerHTML == '&nbsp;' ? '_' : '&nbsp;');
         }, 1000);
     }
-
-    var i = 0;
-    var txt = 'H-Thai-ML';
-    var speed = 10;
-function typeWriter() {
-  if (i < txt.length) {
-    document.getElementById("logo-span").innerHTML += txt.charAt(i);
-    i++;
-    setTimeout(typeWriter, speed);
-  }
-}
+    //function to add typing animation, not yet used
+      var i = 0;
+      var txt = 'H-Thai-ML';
+      var speed = 10;
+    function typeWriter() 
+    {
+      if (i < txt.length) 
+      {
+        document.getElementById("logo-span").innerHTML += txt.charAt(i);i++;
+        setTimeout(typeWriter, speed);
+      }
+    }
     //function that converts lat and lon to radians and compare the two to find the closest location in K units
     function distance(lat0, lon0, lat1, lon1) 
     {
@@ -64,7 +117,7 @@ function typeWriter() {
         dist = dist * 60 * 1.1515;
         dist = dist * 1.609344; //converting to K units
     return dist;
-}
+    }
     //function that takes users location and shows the closest location in the logo span
     function displayCorrectLocation()
     {
@@ -84,9 +137,6 @@ function typeWriter() {
             "Wilmington" : {latitude: 34.225727, longitude: -77.944710},
             }
             const usersCrd = pos.coords;
-            console.log("Your current position is:");
-            console.log(`Latitude : ${usersCrd.latitude}`);
-            console.log(`Longitude: ${usersCrd.longitude}`);
             // convert lat and long to radians
             var distances = {};
             let closestCity = "Houston"
@@ -110,20 +160,84 @@ function typeWriter() {
                     }
                 }
             }
-            document.getElementById("logo-location").innerHTML = closestCity;
+            document.getElementById("location-HTML").innerHTML = "Your Location has been calculated to be nearest to our "+closestCity+" Branch";
         }
         function error(err) 
         {
             console.warn(`ERROR(${err.code}): ${err.message}`);
             //just put them in the deafult location which I have decided is Houston
             alert("Location unknown, showing our Houston Site");
-            document.getElementById("logo-location").innerHTML = "Houston";
+            document.getElementById("location-HTML").innerHTML = "Your Location has failed calculation and you are being redirected to our calculated to be nearest to our Houston Branch";
+
         }
         navigator.geolocation.getCurrentPosition(success, error, options);
     }
+    //function to replace character at a specific index
+    function replaceChar(origString, replaceChar, index) 
+    {
+        let firstPart = origString.substr(0, index);
+        let lastPart = origString.substr(index + 1);
+        let newString = firstPart + replaceChar + lastPart;
+        return newString;
+    }
+    //function for the home image carousel 
+    //generalized-ish out to work for n images
+    //every image that you wish to cycle through must be id'd image_id-n
+    //the circle counter that should be changed will also have the id 
+    //image_id-circlecounter
+    //IMAGE_ID CANNOT HAVE A -
+    //ALL BUTTON IDS MUST END IN -left or -right
+  function carousel (button, image_id, n)
+{
+  var imagesarray = [];
+  for(let i=0;i<n; i++)
+    {
+      imagesarray.push(image_id + "-" + i);
+    }
+  var circlecounter_id = image_id + "-circlecounter";
+  var button_id = button.id.split("-")[1]; //left or right
+  for (let i=0;i<imagesarray.length; i++)
+  {
+        if (document.getElementById(imagesarray[i]).style.display == "")
+        {
+           var index = parseInt(imagesarray[i].split("-")[1]);
+          console.log(index)
+        }
+   }
+   if (button_id == "right")
+   {
+      var next = index + 1;
+      if (next == imagesarray.length )
+        {
+          var next = 0;        
+        }
+    }
+    else //left button
+    {
+      var next = index -1;
+      if (index <= 0)
+      {
+        var next = imagesarray.length - 1;
+      }
+    }
+  for (let i=0;i<imagesarray.length; i++)
+    {
+          if (parseInt(imagesarray[i].split("-")[1]) == next)
+          {
+            document.getElementById(imagesarray[i]).style.display = "";
+          }
+          else
+          {
+            document.getElementById(imagesarray[i]).style.display = "none"
+          }
+    }
+  var circles_innerHTML_all= '◎'.repeat(imagesarray.length);
+  var circles_innerHTML =  replaceChar(circles_innerHTML_all, '◉', next);
+  document.getElementById(circlecounter_id).innerHTML = circles_innerHTML;
+  //generate length many circles, replace nexth-th one with a filled in 
+};
     
-    
-    //displayCorrectLocation();
+    displayCorrectLocation();
     blink();
 
 
