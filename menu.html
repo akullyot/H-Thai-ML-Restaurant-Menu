@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>H-Thai-ML: Menu</title>
     <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
 </head>
 <body>
   <header>
@@ -30,7 +32,172 @@
   </nav>
   <main>
   <pre class="main-terminal-window">
+    <span class="line" style ="margin-bottom: 0px;">Guest@h-thai-ml / $ cd ~</span>
+    <span class="line" style ="margin-bottom: 0px;">Guest@h-thai-ml ~ $ cd H-Thai-ML </span>
+    <span class="line" style ="margin-bottom: 0px;">Guest@h-thai-ml ~/H-Thai-ML $ cd MenuPage </span>
+    <span class="line" style ="margin-bottom: 0px;">Guest@h-thai-ml ~/H-Thai-ML/MenuPage $ ls </span>
+    <span class="line" style ="margin-bottom: 0px; color: slategray;">&emsp; appetizers.html &emsp; lunch.html &emsp; dinner.html &emsp; dessert.html &emsp; beverages.html &emsp; sideOrders.html</span>
+    <span class="line" style ="margin-bottom: -20px;">Guest@h-thai-ml ~/H-Thai-ML/MenuPage $ nano appetizers.html  </span>
+    <div class = "terminal-text">
+      <div id = "menu-title-div">
+      <h1> > Our Menu:</h1>
+      <table class = "menu-legend">
+        <thead class="menu-head">
+          <th> Meaning </th>
+          <th> Icon </th>
+        </thead>
+          <tr>
+            <td> Most Popular</td>
+            <td> <i class="fas fa-star"></i></td>
+          </tr>
+          <tr>
+            <td> Warning! Most Spicy</td>
+            <td> <i class="fas fa-pepper-hot"></i></td>
+          </tr>
 
+      </table>
+      </div>
+      <h2 class = "table-title"> > Appetizers </h2>
+      <table class = "menu-table">
+        <thead class="menu-head">
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td> <i class="fas fa-pepper-hot"></i> Chicken Satay</td>
+                <td class = "price">$7.95</td>
+            </tr>
+            <tr>
+                <td>Fresh Rolls</td>
+                <td class = "price">$6.95</td>
+            </tr>
+        </tbody>
+      </table>
+      <h2 class = "table-title"> > Lunch </h2>
+      <table class = "menu-table">
+        <thead class="menu-head">
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <tr>
+                        <td>Panang Curry</td>
+                        <td class = "price">$9.95</td>
+                    </tr>
+                    <tr>
+                        <td><i class="fas fa-pepper-hot"></i> Red Curry</td>
+                        <td class = "price">$9.95</td>
+                    </tr>
+                    <tr>
+                        <td>Yellow Curry</td>
+                        <td class = "price">$8.95</td>
+                    </tr>
+                    <tr>
+                        <td>Tom Ka Soup</td>
+                        <td class = "price">$8.95</td>
+                    </tr>
+                    <tr>
+                        <td><i class="fas fa-pepper-hot"></i> Tom Yum Soup</td>
+                        <td class = "price">$8.95</td>
+                    </tr>
+                </tr>
+            </tbody>
+      </table>
+      <h2 class = "table-title"> > Dinner </h2>
+      <table class = "menu-table">
+        <thead class="menu-head">
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><i class="fas fa-star"></i> Pad Thai</td>
+                    <td class = "price" > $ 10.95</td>
+                </tr>
+                <tr>
+                    <td><i class="fas fa-star"></i> Pad See Ew</td>
+                    <td class = "price" > $ 10.49</td>
+                </tr>
+                <tr>
+                    <td>Rad Nah</td>
+                    <td class = "price" > $ 10.49</td>
+                </tr>
+            </tbody>
+      </table>
+      <h2 class = "table-title"> > Dessert </h2>
+      <table class = "menu-table">
+        <thead class="menu-head">
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Black Sticky Rice Pudding</td>
+                    <td class = "price" > $ 3.99</td>
+                </tr>
+                <tr>
+                    <td><i class="fas fa-star"></i> Mango Sticky Rice</td>
+                    <td class = "price" > $ 5.99</td>
+                </tr>
+            </tbody>
+      </table>
+      <h2 class = "table-title"> > Beverages </h2>
+      <table class = "menu-table">
+        <thead class="menu-head">
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Thai Iced Coffee</td>
+                    <td class = "price" > $ 3.49</td>
+                </tr>
+                <tr>
+                    <td>Thai Iced Tea</td>
+                    <td class = "price" > $ 3.49</td>
+                </tr>
+                <tr>
+                    <td>Unsweetened Iced Tea</td>
+                    <td class = "price" > $ 2.49</td>
+                </tr>
+            </tbody>
+      </table>
+      <h2 class = "table-title"> > Side Orders </h2>
+      <table class = "menu-table">
+        <thead class="menu-head">
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Jasmine rice</td>
+                    <td class = "price" > $ 1.99</td>
+                </tr>
+                <tr>
+                    <td>Brown rice</td>
+                    <td class = "price" > $ 2.49</td>
+                </tr>
+                <tr>
+                    <td>Cucumber Salad</td>
+                    <td class = "price" > $ 2.99</td>
+                </tr>
+            </tbody>
+      </table>
+    </div>
   </pre>
   </main>
   <footer id = "social-media-footer">
